@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="false"
+    android:nestedScrollingEnabled="false"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="59dp" />
+
+    <TextView
+        android:id="@+id/top_picks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TOP PICKS"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="14dp" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="51dp">
+
+        <ImageView
+            android:id="@+id/firstPick"
+            android:layout_width="84dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/phone1" />
+
+        <Space
+            android:layout_width="31dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/secondPick"
+            android:layout_width="111dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/phone2" />
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/thirdPick"
+            android:layout_width="69dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/phone5" />
+
+    </TableRow>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="33dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/phone_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="#00BCD4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="70dp"
+                android:layout_height="28dp"
+                android:fontFamily="sans-serif"
+                android:text="Phones"
+                android:textAlignment="textEnd"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.802"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/phone6" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/laptops_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:backgroundTint="#9A02D1"
+        app:cardCornerRadius="4dp">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="148dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/phone2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Laptops"
+            android:textAlignment="textEnd"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="37dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/watches_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:backgroundTint="#F4CD1E"
+        app:cardCornerRadius="4dp">
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/phone3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Smart Watches" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
