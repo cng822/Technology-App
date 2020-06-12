@@ -6,15 +6,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="169dp">
-
-        <LinearLayout
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ViewFlipper
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+        <Button
+            android:id="@+id/leftButton"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-    </HorizontalScrollView>
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            />
+
+        <Button
+            android:id="@+id/rightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
