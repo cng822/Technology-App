@@ -19,8 +19,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.technology.TopViewProvider.top3;
+
 public class MainActivity extends AppCompatActivity {
-    TechnologyAdapter searchadapter;
+    TopViewAdapter picksadapter;
+    List<Technology> picks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +60,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageView first_pick = findViewById(R.id.firstPick);
-        first_pick.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent topOne = new Intent(getBaseContext(), DetailActivity.class);
-            }
-        });
+        setUpTopPicks();
+    }
+
+
+    private void setUpTopPicks() {
+        RecyclerView recyclerView = findViewById(R.id.top3);
+        picks = TopViewProvider.top3();
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        picksadapter = new TopViewAdapter(this, picks);
+        recyclerView.setAdapter(picksadapter);
     }
 
     @Override
@@ -91,6 +102,5 @@ public class MainActivity extends AppCompatActivity {
 //        });
         return true;
     }
-
 
 }

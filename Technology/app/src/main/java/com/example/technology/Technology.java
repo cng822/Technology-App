@@ -7,6 +7,7 @@ public class Technology implements Serializable {
     protected String category;
     protected int image;
     protected String price;
+    static int count;
 
     public Technology(String productName, String category, int image, String price) {
         this.productName = productName;
@@ -22,6 +23,9 @@ public class Technology implements Serializable {
     public String getPrice() { return this.price; }
 
     public int getImage() { return this.image; }
+
+    public int itemViews() { return count++; }
+
 
     static class Phones extends Technology {
         public Phones(String productName, String category, int image, String price){

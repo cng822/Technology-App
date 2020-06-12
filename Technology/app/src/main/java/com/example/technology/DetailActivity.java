@@ -35,4 +35,5 @@ public class DetailActivity extends AppCompatActivity {
         Cover.setImageResource(details.getIntExtra("image", 0));
     }
 
+
 }
