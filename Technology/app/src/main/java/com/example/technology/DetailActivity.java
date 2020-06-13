@@ -42,6 +42,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Technology item = (Technology) details.getSerializableExtra(TechnologyAdapter.TECH_DETAIL_KEY);
         title.setText(item.getName());
+        description.setText(item.getDescription());
 
 //        title.setText(details.getStringExtra("name"));
 //        // need to set this still

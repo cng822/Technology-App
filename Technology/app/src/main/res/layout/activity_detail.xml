@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="ProductTile"
+        android:text="ProductTitle"
         android:textSize="50dp"
         android:textColor="#673AB7"
         />
@@ -90,7 +90,7 @@
         android:layout_height="200dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:text="Description" />
 
     <View
