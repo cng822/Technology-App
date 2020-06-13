@@ -13,9 +13,9 @@ import java.util.Map;
 public class DataProvider {
     static String[] products = {"Blackberry 10" , "iPhone 4" ,"Google Nexus 1", "Nokia 7230",
     "OPPO R11", "Sony Xperia 1", "LG Smart Watch", "MacBook Air 2018", "MackBook Pro", "Apple Watch Series 1"
-    ,"Apple Watch Series 3", "Asus", "Fitbit Charge 4", "Galaxy Watch", "Garmin Fenix", "Fitbit Inspire",
-    "iPhone 8", "Fitbit Kids", "iPhone 11", "Lenovo", "OnePlus", "Windows Surface", "Venu",
-    "Vivomove", "iPhone XR", "MacBook Air 2019", "HP", "Surface 2", "MacBook Pro 2016",
+    ,"Apple Watch Series 3", "Asus Laptop", "Fitbit Charge 4", "Galaxy Watch", "Garmin Fenix", "Fitbit Inspire",
+    "iPhone 8", "Fitbit Kids", "iPhone 11", "Lenovo Laptop", "OnePlus", "Windows Surface", "Venu",
+    "Vivomove", "iPhone XR", "MacBook Air 2019", "HP Elitebook", "Surface 2", "MacBook Pro 2016",
     "Asus Tablet/Laptop"};
 
     static String[] prices = {"599","499","285","297","769", "1199", "449", "1949", "2079", "450",
@@ -30,7 +30,7 @@ public class DataProvider {
     R.drawable.asus_1, R.drawable.charge_1, R.drawable.galaxy_1, R.drawable.garmin_1,
     R.drawable.inspire__1, R.drawable.iphone8_1, R.drawable.kids_1, R.drawable.iphone11_1,
     R.drawable.lenovo_1, R.drawable.oneplus_1, R.drawable.surface_1, R.drawable.venu_1,
-            R.drawable.vivomove_1, R.drawable.xr_1, R.drawable.air_1, R.drawable.hp_1,
+            R.drawable.vivomove_1, R.drawable.xr_1, R.drawable.air_3, R.drawable.hp_1,
     R.drawable.surface2_1, R.drawable.pro_1, R.drawable.tablet_1};
 
     static String[] descriptions = {
