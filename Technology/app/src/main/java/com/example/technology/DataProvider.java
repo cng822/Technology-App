@@ -33,6 +33,37 @@ public class DataProvider {
             R.drawable.vivomove_1, R.drawable.xr_1, R.drawable.air_3, R.drawable.hp_1,
     R.drawable.surface2_1, R.drawable.pro_1, R.drawable.tablet_1};
 
+    static int [] slides = {R.drawable.blackberry_1, R.drawable.blackberry_2, R.drawable.blackberry_3,
+    R.drawable.iphone4_1, R.drawable.iphone4_2, R.drawable.iphone4_3,
+    R.drawable.nexus_1, R.drawable.nexus_2, R.drawable.nexus_3,
+    R.drawable.nokia_1, R.drawable.nokia_2, R.drawable.nokia_3,
+    R.drawable.oppor11_1, R.drawable.oppor11_2, R.drawable.oppor11_3,
+    R.drawable.sony_1, R.drawable.sony_2, R.drawable.sony_3,
+    R.drawable.lgwatch_1, R.drawable.lgwatch_2, R.drawable.lgwatch_3,
+    R.drawable.macbookair_1, R.drawable.macbookair_2, R.drawable.macbookair_3,
+    R.drawable.macbookpro_1, R.drawable.macbookpro_2, R.drawable.macbookpro_3,
+    R.drawable.series1_1, R.drawable.series1_2, R.drawable.series1_3,
+    R.drawable.series3_1, R.drawable.series3_2, R.drawable.series3_3,
+    R.drawable.asus_1, R.drawable.asus_2, R.drawable.asus_3,
+    R.drawable.charge_1, R.drawable.charge_2, R.drawable.charge_3,
+    R.drawable.galaxy_1, R.drawable.galaxy_2, R.drawable.galaxy_3,
+    R.drawable.garmin_1, R.drawable.garmin_2, R.drawable.garmin_3,
+    R.drawable.inspire__1, R.drawable.inspire_2, R.drawable.inspire_3,
+    R.drawable.iphone8_1, R.drawable.iphone8_2, R.drawable.iphone8_3,
+    R.drawable.kids_1, R.drawable.kids_2, R.drawable.kids_3,
+    R.drawable.iphone11_1, R.drawable.iphone11_2, R.drawable.iphone11_3,
+    R.drawable.lenovo_1, R.drawable.lenovo_2, R.drawable.lenovo_3,
+    R.drawable.oneplus_1, R.drawable.oneplus_2, R.drawable.oneplus_3,
+    R.drawable.surface_1, R.drawable.surface_2, R.drawable.surface_3,
+    R.drawable.venu_1, R.drawable.venu_2, R.drawable.venu_3,
+    R.drawable.vivomove_1, R.drawable.vivomove_2, R.drawable.vivomove_3,
+    R.drawable.xr_1, R.drawable.xr_2, R.drawable.xr_3,
+    R.drawable.air_1, R.drawable.air_2, R.drawable.air_3,
+    R.drawable.hp_1, R.drawable.hp_2, R.drawable.hp_3,
+    R.drawable.surface2_1, R.drawable.surface2_2, R.drawable.surface2_3,
+    R.drawable.pro_1, R.drawable.pro_2, R.drawable.pro_3,
+    R.drawable.tablet_1, R.drawable.tablet_2, R.drawable.tablet_3};
+
     static String[] descriptions = {
             "The Blackberry 10 has better performance in the same familiar package. A familiar " +
                     "design inclusive of the beloved classic navigation keys and keyboard, with " +
@@ -126,6 +157,7 @@ public class DataProvider {
                     "occasion."
     };
 
+
     public static List<Technology> generateData() {
         ArrayList<Technology> techList = new ArrayList<Technology>();
         for (int i = 0; i < products.length; i++) {
@@ -135,19 +167,21 @@ public class DataProvider {
             String description = descriptions[i];
             int categoryNumber = categoryNumbers[i];
             int cover = covers[i];
+            int[] slide = {slides[(i*3)], slides[(i*3)+1], slides[(i*3)+2]};
             if (categoryNumber == 1) {
                 category = "Phones";
-                Technology aPhone = new Technology.Phones(productName, category, cover, price, description) {
-                };
+                Technology aPhone = new Technology.Phones(productName, category, cover, price,
+                        description, slide);
                 techList.add(aPhone);
             } else if (categoryNumber == 2){
                 category = "Laptops";
-                Technology aLaptop = new Technology.Laptops(productName, category, cover, price,description) {
-                };
+                Technology aLaptop = new Technology.Laptops(productName, category, cover, price,
+                        description, slide);
                 techList.add(aLaptop);
             } else if (categoryNumber == 3) {
                 category = "Smart Watches";
-                Technology aWatch = new Technology.SmartWatches(productName, category, cover, price, description);
+                Technology aWatch = new Technology.SmartWatches(productName, category, cover, price,
+                        description, slide);
                 techList.add(aWatch);
             }
         }

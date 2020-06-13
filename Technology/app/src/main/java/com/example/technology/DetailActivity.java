@@ -18,7 +18,7 @@ public class DetailActivity extends AppCompatActivity {
     ViewFlipper imageSlider;
     Button next;
     Button back;
-    int images[] = {R.drawable.phone1, R.drawable.phone2, R.drawable.phone3};
+    //int images[] = {R.drawable.phone1, R.drawable.phone2, R.drawable.phone3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         next = (Button) findViewById(R.id.left);
         back = (Button) findViewById(R.id.right);
 
-        for (int image : images) {
-            imageSlider(image);
-        }
+
 
         ImageView Cover = findViewById(R.id.ProductImage);
         TextView title = findViewById(R.id.titleProduct);
@@ -43,16 +41,19 @@ public class DetailActivity extends AppCompatActivity {
         Technology item = (Technology) details.getSerializableExtra(TechnologyAdapter.TECH_DETAIL_KEY);
         title.setText(item.getName());
         description.setText(item.getDescription());
+        int images[] = item.getSlide();
 
-//        title.setText(details.getStringExtra("name"));
-//        // need to set this still
-//        description.setText(details.getDescription());
+        for (int image : images) {
+            imageSlider(image);
+        }
+
 
         setPrice = item.getPrice();
         setPrice = "$ " + setPrice;
         price.setText(setPrice);
         Cover.setImageResource(item.getImage());
         item.itemViews();
+
 
         System.out.println(item.itemViews());
     }
