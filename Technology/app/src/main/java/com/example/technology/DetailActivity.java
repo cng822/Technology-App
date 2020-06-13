@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -16,45 +15,38 @@ public class DetailActivity extends AppCompatActivity {
     private TextView title, price, description;
     String setPrice;
     ViewFlipper imageSlider;
-    Button next;
-    Button back;
-    //int images[] = {R.drawable.phone1, R.drawable.phone2, R.drawable.phone3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        //declaration of variables
         imageSlider = findViewById(R.id.imageSlider);
-        next = (Button) findViewById(R.id.left);
-        back = (Button) findViewById(R.id.right);
+        Cover = findViewById(R.id.ProductImage);
+        title = findViewById(R.id.titleProduct);
+        price = findViewById(R.id.prices);
+        description = findViewById(R.id.description);
 
-
-
-        ImageView Cover = findViewById(R.id.ProductImage);
-        TextView title = findViewById(R.id.titleProduct);
-        TextView price = findViewById(R.id.prices);
-        TextView description = findViewById(R.id.description);
-
+        //get details of item being passed into detail activity
         Intent details = getIntent();
-
         Technology item = (Technology) details.getSerializableExtra(TechnologyAdapter.TECH_DETAIL_KEY);
+
+        //set values to display components
         title.setText(item.getName());
         description.setText(item.getDescription());
-        int images[] = item.getSlide();
-
-        for (int image : images) {
-            imageSlider(image);
-        }
-
-
         setPrice = item.getPrice();
         setPrice = "$ " + setPrice;
         price.setText(setPrice);
         Cover.setImageResource(item.getImage());
+        int images[] = item.getSlide();
+
+        //display images through the image slider function
+        for (int image : images) {
+            imageSlider(image);
+        }
+
         item.itemViews();
-
-
         System.out.println(item.itemViews());
     }
 
@@ -63,8 +55,8 @@ public class DetailActivity extends AppCompatActivity {
         imageView.setBackgroundResource(image);
         imageSlider.addView(imageView);
         imageSlider.setFlipInterval(3000); //3 seconds
-        imageSlider.setAutoStart(true);
-        //animation
+        imageSlider.setAutoStart(true); //start image slider automatically
+        //animation for image sliding
         imageSlider.setInAnimation(this, android.R.anim.slide_in_left);
         imageSlider.setOutAnimation(this, android.R.anim.slide_out_right);
     }
