@@ -47,7 +47,7 @@ public class DataProvider {
             "The Nokia 7230 is a stylish, well-priced 3G slider phone that has a good quality of " +
                     "preloaded apps and a 3.2MP camera. ",
             "The OPPO R11 showcases groundbreaking dual 20MP with enhanced effects and unprecedented" +
-                    "pictorial clarity.",
+                    " pictorial clarity.",
             "The Sony Xperia is a very capable and good looking phone which provides the user with " +
                     "a great battery life, decent camera and a big screen in an easy to hold body.",
             "The LG Smart Watch has long-lasting battery that ensures  everything you need is " +
@@ -55,10 +55,10 @@ public class DataProvider {
             "The 13-inch MacBook Air features 8GB of memory, a fifth-generation Intel Core " +
                     "processor, Thunderbolt 2, great built-in apps and all-day battery life. It’s " +
                     "thin, light and durable enough to take everywhere you go — and powerful " +
-                    "enough to do everything once you get there. ",
+                    "enough to do everything. ",
             "MacBook Pro elevates the notebook to a whole new level of performance and " +
                     "portability. Wherever your ideas take you, you'll get there faster than " +
-                    "ever with high-performance processors and memory, advanced graphics, " +
+                    "ever with high-performance processors and memory, " +
                     "blazing-fast storage and more.",
             "The Apple Watch Series 1 is a fitness watch with a built-in heart rate monitor. It " +
                     "was designed to be paired with an iPhone so that the phone can stay in the " +
@@ -79,11 +79,10 @@ public class DataProvider {
                     "more.",
             "Fitbit Inspire HR is a friendly heart rate & fitness tracker for every day that helps " +
                     "you build healthy habits. This encouraging companion motivates you to reach " +
-                    "your health, weight and fitness goals and even enjoy the journey with 24/7 " +
-                    "heart rate, workout features, calorie burn tracking, goal celebrations, " +
-                    "sleep stages and up to 5 day battery life.",
+                    "your health, workout features, calorie burn tracking, goal celebrations, " +
+                    "and sleep stages.",
             "The iPhone 8 includes a 4.7-inch display, while the iPhone 8 Plus features a larger " +
-                    "5.5-inch display. Both displays were upgraded with True Tone support, " +
+                    "5.5-inch display. Both displays were " +
                     "designed to adapt color temperature and intensity to the ambient light in a " +
                     "room for a more natural, paper-like viewing experience.",
             "Make fitness fun for kids and their families. With lots of cool games and rewards for " +
@@ -103,15 +102,11 @@ public class DataProvider {
             "Find a time and a place for every part of your active life with Venu. This GPS " +
                     "smartwatch features a bright, beautiful display and a battery life of up to " +
                     "5 days, so you can spend more time doing the activities you love.",
-            "The vívomove Style smartwatch combines the traditional look of an analog watch with " +
-                    "the essential smart features you count on to keep up with your busy life. " +
-                    "Its sleek, aluminum case and domed Corning Gorilla glass make for a chic but " +
-                    "durable design. Suit every look with a variety of attractive colors and bands " +
-                    "available in silicone or woven nylon.",
+            "The Vivomove Style smartwatch combines the traditional look of an analog watch with " +
+                    "the essential smart features you count on to keep up with your busy life. ",
             "iPhone XR features the most advanced LCD in a smartphone — a 6.1-inch Liquid Retina " +
                     "display with industry-leading colour accuracy and an innovative backlight " +
-                    "design that allows the screen to stretch into the corners.1 Six stunning new " +
-                    "finishes. ",
+                    "design that allows the screen to stretch into the corners.",
             "The incredibly thin and light MacBook Air is now more powerful than ever. It features " +
                     "a brilliant Retina display, new Magic Keyboard, Touch ID, processors with up " +
                     "to twice the performance, faster graphics and double the storage capacity.",
@@ -128,8 +123,7 @@ public class DataProvider {
             "This is a convertible laptop that features the extremely narrow ASUS NanoEdge bezel, " +
                     "allowing its 14-inch Full HD display to fit into a typical 13-inch laptop " +
                     "frame. The slim and lightweight VivoBook Flip 14 is designed to suit any " +
-                    "occasion. Use it as a stylish laptop, a handy tablet - or anything in between. " +
-                    "Its Intel Core i7 processor lets you sail through everyday tasks with ease."
+                    "occasion."
     };
 
     public static List<Technology> generateData() {
