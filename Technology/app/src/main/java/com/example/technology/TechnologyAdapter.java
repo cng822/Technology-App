@@ -19,12 +19,12 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.ViewHolder> {
-
+public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.ViewHolder> implements Filterable {
+    public static final String TECH_DETAIL_KEY = "tech";
     private List<Technology> tech, AllItems, techresults;
     private Context aContext;
 
-    public TechnologyAdapter(Context context, List<Technology> objects){
+    public TechnologyAdapter(Context context, List<Technology> objects) {
         this.tech = objects;
         this.aContext = context;
         AllItems = new ArrayList<>(tech);
@@ -33,7 +33,7 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position){
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
         View view = LayoutInflater.from(aContext).inflate(R.layout.activity_list__view, parent, false);
         return new ViewHolder(view);
     }
@@ -51,59 +51,62 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
         return tech.size();
     }
 
-//    @Override
-//    public Filter getFilter() {
-//        return FilterResults;
-//    }
-//
-//    private Filter FilterResults = new Filter() {
-//        @Override
-//        protected FilterResults performFiltering(CharSequence constraint) {
-//            List<Technology> filteredList = new ArrayList<>();
-//            if (constraint == null || constraint.length() == 0) {
-//                filteredList.addAll(AllItems);
-//            } else {
-//                String filterPattern = constraint.toString().toLowerCase().trim();
-//                for (Technology item : AllItems) {
-//                    if (item.getName().toLowerCase().contains(filterPattern)) {
-//                        filteredList.add(item);
-//                    }
-//                }
-//            }
-//            FilterResults results = new FilterResults();
-//            results.values = filteredList;
-//            return results;
-//        }
-//        @Override
-//        protected void publishResults(CharSequence constraint, FilterResults results) {
-//            techresults.clear();
-//            techresults.addAll((List) results.values);
-//            notifyDataSetChanged();
-//        }
-//    };
+    @Override
+    public Filter getFilter() {
+        return FilterResults;
+    }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    private Filter FilterResults = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Technology> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(AllItems);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Technology item : AllItems) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            techresults.clear();
+            techresults.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivCover;
         TextView tvTitle;
-        public ViewHolder(@NonNull View item){
+
+        public ViewHolder(@NonNull View item) {
             super(item);
             ivCover = item.findViewById(R.id.ivCover);
             tvTitle = item.findViewById(R.id.tvTitle);
 
             item.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v){
-                    Intent select = new Intent(v.getContext(), DetailActivity.class);
-                    select.putExtra("name", tech.get(getAdapterPosition()).getName());
-                    select.putExtra("image", tech.get(getAdapterPosition()).getImage());
-                    select.putExtra("price", tech.get(getAdapterPosition()).getPrice());
-                    v.getContext().startActivity(select);
-                }
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent select = new Intent(v.getContext(), DetailActivity.class);
+                                            select.putExtra(TECH_DETAIL_KEY, tech.get(getAdapterPosition()));
+//                    select.putExtra("image", tech.get(getAdapterPosition()).getImage());
+//                    select.putExtra("price", tech.get(getAdapterPosition()).getPrice());
+                                            v.getContext().startActivity(select);
+                                        }
 
-            }
+                                    }
             );
+
         }
     }
-
 }
+
 

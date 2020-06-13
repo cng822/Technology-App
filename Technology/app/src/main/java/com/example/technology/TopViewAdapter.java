@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class TopViewAdapter extends RecyclerView.Adapter<TopViewAdapter.ViewHolder> {
+    public static final String TECH_DETAIL_KEY = "tech";
     private List<Technology> items;
     private Context context;
 
@@ -52,9 +53,7 @@ public class TopViewAdapter extends RecyclerView.Adapter<TopViewAdapter.ViewHold
                 @Override
                 public void onClick(View v){
                     Intent select = new Intent(v.getContext(), DetailActivity.class);
-                    select.putExtra("name", items.get(getAdapterPosition()).getName());
-                    select.putExtra("image", items.get(getAdapterPosition()).getImage());
-                    select.putExtra("price", items.get(getAdapterPosition()).getPrice());
+                    select.putExtra(TECH_DETAIL_KEY, items.get(getAdapterPosition()));
                     v.getContext().startActivity(select);
                 }
                 }

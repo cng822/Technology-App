@@ -13,7 +13,11 @@
     <SearchView
         android:id="@+id/searchMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:queryHint="Search here">
+
+    </SearchView>
 
     <TextView
         android:id="@+id/top_picks"
@@ -33,7 +37,7 @@
         android:id="@+id/top3"
         android:layout_width="match_parent"
         android:layout_height="107dp"
-        android:background="#C15454" />
+        android:background="#FDFAFA" />
 
     <Space
         android:layout_width="match_parent"
