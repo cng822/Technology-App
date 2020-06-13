@@ -29,27 +29,34 @@ public class DetailActivity extends AppCompatActivity {
         next = (Button) findViewById(R.id.left);
         back = (Button) findViewById(R.id.right);
 
-        for (int image:images){
+        for (int image : images) {
             imageSlider(image);
         }
 
-        ImageView Cover =  findViewById(R.id.ProductImage);
+        ImageView Cover = findViewById(R.id.ProductImage);
         TextView title = findViewById(R.id.titleProduct);
         TextView price = findViewById(R.id.prices);
         TextView description = findViewById(R.id.description);
 
         Intent details = getIntent();
-        title.setText(details.getStringExtra("name"));
-        // need to set this still
+
+        Technology item = (Technology) details.getSerializableExtra(TechnologyAdapter.TECH_DETAIL_KEY);
+        title.setText(item.getName());
+
+//        title.setText(details.getStringExtra("name"));
+//        // need to set this still
 //        description.setText(details.getDescription());
 
-        setPrice = details.getStringExtra("price");
+        setPrice = item.getPrice();
         setPrice = "$ " + setPrice;
         price.setText(setPrice);
-        Cover.setImageResource(details.getIntExtra("image", 0));
+        Cover.setImageResource(item.getImage());
+        item.itemViews();
+
+        System.out.println(item.itemViews());
     }
 
-    public void imageSlider (int image){
+    public void imageSlider(int image) {
         ImageView imageView = new ImageView(this);
         imageView.setBackgroundResource(image);
         imageSlider.addView(imageView);
@@ -59,6 +66,5 @@ public class DetailActivity extends AppCompatActivity {
         imageSlider.setInAnimation(this, android.R.anim.slide_in_left);
         imageSlider.setOutAnimation(this, android.R.anim.slide_out_right);
     }
-
-
 }
+

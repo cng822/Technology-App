@@ -14,6 +14,7 @@ public class Technology implements Serializable {
         this.category = category;
         this.image = image;
         this.price = price;
+        count = 0;
     }
 
     public String getName() { return this.productName; }

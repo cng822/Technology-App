@@ -10,10 +10,14 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/view2"
+    <SearchView
+        android:id="@+id/searchMenu"
         android:layout_width="match_parent"
-        android:layout_height="59dp" />
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:queryHint="Search here">
+
+    </SearchView>
 
     <TextView
         android:id="@+id/top_picks"
@@ -32,7 +36,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/top3"
         android:layout_width="match_parent"
-        android:layout_height="98dp" />
+        android:layout_height="107dp"
+        android:background="#FDFAFA" />
 
     <Space
         android:layout_width="match_parent"

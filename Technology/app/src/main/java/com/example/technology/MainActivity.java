@@ -1,32 +1,31 @@
 package com.example.technology;
 
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.SearchManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.technology.TopViewProvider.top3;
-
 public class MainActivity extends AppCompatActivity {
+
     TopViewAdapter picksadapter;
     List<Technology> picks;
+    TechnologyAdapter sAdapter;
+    List<Technology> itemsList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setUpTopPicks();
+
+        Intent ask = getIntent();
+        if (Intent.ACTION_SEARCH.equals(getIntent().getAction())){
+            String query = ask.getStringExtra(SearchManager.QUERY);
+        }
     }
 
 
@@ -86,21 +90,24 @@ public class MainActivity extends AppCompatActivity {
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.searchMenu).getActionView();
         searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
+                searchManager.getSearchableInfo(new ComponentName(this, ListActivity.class)));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                searchadapter.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+//                sAdapter.getFilter().filter(newText);
+                Log.e("queryText",newText);
+                return false;
+            }
+        });
         return true;
     }
+
+
 
 }
