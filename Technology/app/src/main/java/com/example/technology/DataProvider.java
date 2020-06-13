@@ -11,10 +11,14 @@ import java.util.List;
 import java.util.Map;
 
 public class DataProvider {
-    static String[] products = {"Iphone XS Max" , "Iphone XR" , "Iphone 6s", "Oppo R11", "Huawei P8", "Apple Watch"};
-    static String[] prices = {"1499","1099","2100","699","100","2300"};
-    static int[] categoryNumbers = {1,1,2,2,3,3};
-    static int[] covers = {R.drawable.phone1, R.drawable.phone2, R.drawable.phone3, R.drawable.phone4, R.drawable.phone5, R.drawable.phone6};
+    static String[] products = {"Blackberry" , "iPhone 4" ,"Google Nexus", "Nokia 7230",
+    "OPPO R11", "Sony Xperia", "LG Smart Watch", "MacBook Air", "MackBook Pro", "Apple Watch Series 1"
+    ,"Apple Watch Series 3"};
+    static String[] prices = {"250","499","285","297","769", "1199", "449", "1949", "2079", "450", "550"};
+    static int[] categoryNumbers = {1,1,1,1,1,1,3,2,2,3,3};
+    static int[] covers = {R.drawable.blackberry_1, R.drawable.iphone4_1, R.drawable.nexus_1,
+    R.drawable.nokia_1, R.drawable.oppor11_1, R.drawable.sony_1, R.drawable.lgwatch_1,
+    R.drawable.macbookair_1,R.drawable.macbookpro_1,R.drawable.series1_3, R.drawable.series3_1};
 
     public static List<Technology> generateData() {
         ArrayList<Technology> techList = new ArrayList<Technology>();

@@ -37,11 +37,11 @@ public class ListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.RecylcerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       if (selectedList.size() > 0){
-           technologyAdapter = new TechnologyAdapter(this, selectedList);
-       } else {
+        if (selectedList.size() > 0){
+            technologyAdapter = new TechnologyAdapter(this, selectedList);
+        } else {
             technologyAdapter = new TechnologyAdapter(this, techList);
-       }
+        }
 
         recyclerView.setAdapter(technologyAdapter);
     }
