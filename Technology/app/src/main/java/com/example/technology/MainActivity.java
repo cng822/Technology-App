@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         picksadapter = new TopViewAdapter(this, picks);
         recyclerView.setAdapter(picksadapter);
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
