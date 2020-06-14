@@ -21,7 +21,10 @@ public class SearchActivity extends AppCompatActivity {
 
         //return to main activity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         noResults = (TextView) findViewById(R.id.noResults);
+
+        // returns all items in the database
         searchList = DataProvider.generateData();
         Results();
         Intent intent = getIntent();  // data is passed through to searchactivity
@@ -35,6 +38,7 @@ public class SearchActivity extends AppCompatActivity {
         handleIntent(intent);
     }
 
+    // find search results
     private void handleIntent(Intent intent) {
         String toSearch;
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -44,7 +48,7 @@ public class SearchActivity extends AppCompatActivity {
         adapter.getFilter().filter(toSearch);   // filters through to see if any results match
     }
 
-    // sets us recycler view so search results are shown
+    // sets up recycler view so search results are shown
     private void Results() {
         RecyclerView recyclerView = findViewById(R.id.searchRecycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
