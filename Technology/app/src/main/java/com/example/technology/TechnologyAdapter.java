@@ -21,14 +21,14 @@ import java.util.List;
 
 public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.ViewHolder> implements Filterable {
     public static final String TECH_DETAIL_KEY = "tech";
-    private List<Technology> tech, AllItems, techresults;
+    private List<Technology> tech;
     private Context aContext;
+    List<Technology> AllList, searchList;
 
     public TechnologyAdapter(Context context, List<Technology> objects) {
         this.tech = objects;
         this.aContext = context;
-        AllItems = new ArrayList<>(tech);
-        techresults = new ArrayList<>();
+        AllList = new ArrayList<>(tech);
     }
 
     @NonNull
@@ -41,8 +41,8 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         Technology currentProduct = tech.get(position);
-        viewHolder.tvTitle.setText(currentProduct.getName());
-        viewHolder.ivCover.setImageResource(currentProduct.getImage());
+        viewHolder.Title.setText(currentProduct.getName());
+        viewHolder.Cover.setImageResource(currentProduct.getImage());
 
     }
 
@@ -61,10 +61,10 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
         protected FilterResults performFiltering(CharSequence constraint) {
             List<Technology> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(AllItems);
+                filteredList.addAll(AllList);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Technology item : AllItems) {
+                for (Technology item : AllList) {
                     if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
@@ -77,28 +77,27 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            techresults.clear();
-            techresults.addAll((List) results.values);
+            tech.clear();
+            tech.addAll((List) results.values);
             notifyDataSetChanged();
         }
     };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivCover;
-        TextView tvTitle;
+        ImageView Cover;
+        TextView Title;
+
 
         public ViewHolder(@NonNull View item) {
             super(item);
-            ivCover = item.findViewById(R.id.ivCover);
-            tvTitle = item.findViewById(R.id.tvTitle);
+            Cover = item.findViewById(R.id.ivCover);
+            Title = item.findViewById(R.id.tvTitle);
 
             item.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             Intent select = new Intent(v.getContext(), DetailActivity.class);
                                             select.putExtra(TECH_DETAIL_KEY, tech.get(getAdapterPosition()));
-//                    select.putExtra("image", tech.get(getAdapterPosition()).getImage());
-//                    select.putExtra("price", tech.get(getAdapterPosition()).getPrice());
                                             v.getContext().startActivity(select);
                                         }
 
