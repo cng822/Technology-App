@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DataProvider {
+    //list of products
     static String[] products = {"Blackberry 10" , "iPhone 4" ,"Google Nexus 1", "Nokia 7230",
     "OPPO R11", "Sony Xperia 1", "LG Smart Watch", "MacBook Air 2018", "MackBook Pro", "Apple Watch Series 1"
     ,"Apple Watch Series 3", "Asus Laptop", "Fitbit Charge 4", "Galaxy Watch", "Garmin Fenix", "Fitbit Inspire",
@@ -18,12 +19,14 @@ public class DataProvider {
     "Vivomove", "iPhone XR", "MacBook Air 2019", "HP Elitebook", "Surface 2", "MacBook Pro 2016",
     "Asus Tablet/Laptop"};
 
+    //list of prices
     static String[] prices = {"599","499","285","297","769", "1199", "449", "1949", "2079", "450",
             "550", "480","269", "419", "1099", "165", "499", "139", "1449", "799", "599", "729",
             "629", "549", "1249", "1799", "689", "2679","2349", "776"};
-
+    //number for corresponding category, 1=phones, 2=laptops, 3=smartwatches
     static int[] categoryNumbers = {1,1,1,1,1,1,3,2,2,3,3,2,3,3,3,3,1,3,1,2,1,2,3,3,1,2,2,2,2,2};
 
+    //image for cover (list view, description view)
     static int[] covers = {R.drawable.blackberry_1, R.drawable.iphone4_1, R.drawable.nexus_1,
     R.drawable.nokia_1, R.drawable.oppor11_1, R.drawable.sony_1, R.drawable.lgwatch_1,
     R.drawable.macbookair_1,R.drawable.macbookpro_1,R.drawable.series1_3, R.drawable.series3_1,
@@ -33,6 +36,7 @@ public class DataProvider {
             R.drawable.vivomove_1, R.drawable.xr_1, R.drawable.air_3, R.drawable.hp_1,
     R.drawable.surface2_1, R.drawable.pro_1, R.drawable.tablet_1};
 
+    //three images for views
     static int [] slides = {R.drawable.blackberry_1, R.drawable.blackberry_2, R.drawable.blackberry_3,
     R.drawable.iphone4_1, R.drawable.iphone4_2, R.drawable.iphone4_3,
     R.drawable.nexus_1, R.drawable.nexus_2, R.drawable.nexus_3,
@@ -64,6 +68,7 @@ public class DataProvider {
     R.drawable.pro_1, R.drawable.pro_2, R.drawable.pro_3,
     R.drawable.tablet_1, R.drawable.tablet_2, R.drawable.tablet_3};
 
+    //descriptions for each product
     static String[] descriptions = {
             "The Blackberry 10 has better performance in the same familiar package. A familiar " +
                     "design inclusive of the beloved classic navigation keys and keyboard, with " +
@@ -161,6 +166,7 @@ public class DataProvider {
     public static List<Technology> generateData() {
         ArrayList<Technology> techList = new ArrayList<Technology>();
         for (int i = 0; i < products.length; i++) {
+
             String category = "";
             String productName = products[i];
             String price = prices[i];
@@ -168,6 +174,8 @@ public class DataProvider {
             int categoryNumber = categoryNumbers[i];
             int cover = covers[i];
             int[] slide = {slides[(i*3)], slides[(i*3)+1], slides[(i*3)+2]};
+
+            //depending on the category number, add data into specific category
             if (categoryNumber == 1) {
                 category = "Phones";
                 Technology aPhone = new Technology.Phones(productName, category, cover, price,
