@@ -11,6 +11,7 @@ public class Technology implements Serializable {
     protected int [] slide;
     static int count;
 
+    //all the data we need for each product in this app
     public Technology(String productName, String category, int image, String price, String description,
                       int [] slide) {
         this.productName = productName;
@@ -36,7 +37,7 @@ public class Technology implements Serializable {
 
     public int itemViews() { return count++; }
 
-
+    //child classes of Technology
     static class Phones extends Technology {
         public Phones(String productName, String category, int image, String price, String description,
                       int [] slide){
