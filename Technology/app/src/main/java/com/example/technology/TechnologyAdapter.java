@@ -3,6 +3,8 @@ package com.example.technology;
 
 import android.content.Context;
 import android.content.Intent;
+import android.transition.Slide;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -103,7 +105,7 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
         ImageView Cover;
         TextView Title;
 
-        public ViewHolder(@NonNull View item) {
+        public ViewHolder(@NonNull final View item) {
             super(item);
             // set names for corresponding ids in the app;
             Cover = item.findViewById(R.id.ivCover);
@@ -115,6 +117,7 @@ public class TechnologyAdapter extends RecyclerView.Adapter<TechnologyAdapter.Vi
                                         public void onClick(View v) {
                                             // creates a new intent which passes through to DetailActivity
                                             Intent select = new Intent(v.getContext(), DetailActivity.class);
+                                            TransitionManager.beginDelayedTransition((ViewGroup) item, new Slide());
                                             // find position in the adapter and sends the data through
                                             select.putExtra(TECH_DETAIL_KEY, tech.get(getAdapterPosition()));
                                             v.getContext().startActivity(select);
