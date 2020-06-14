@@ -33,12 +33,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //when the app opens, we want the explode transition
         Explode explode = new Explode();
-        getWindow().setExitTransition(explode);
+        getWindow().setEnterTransition(explode);
 
+        //three categories
         final CardView PHCardView = (CardView) findViewById(R.id.phone_view);
         final CardView LTCardView = (CardView) findViewById(R.id.laptops_view);
         final CardView SWCardView = (CardView) findViewById(R.id.watches_view);
+
+        //if click on the specific card, start the specific activity
         PHCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
             //function to make views invisible
             public void toggleVisibility(View... views){
+                //for all views, if they are visible, make them invisible
                 for (View current:views){
                     if (current.getVisibility() == View.VISIBLE){
                         current.setVisibility(View.INVISIBLE);
@@ -86,10 +91,7 @@ public class MainActivity extends AppCompatActivity {
             String query = ask.getStringExtra(SearchManager.QUERY);
         }
     }
-
-
-
-
+    //find the three top picks and display them in recyclerview
     private void setUpTopPicks() {
         RecyclerView recyclerView = findViewById(R.id.top3);
         picks = TopViewProvider.top3();
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         picksadapter = new TopViewAdapter(this, picks);
         recyclerView.setAdapter(picksadapter);
     }
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
