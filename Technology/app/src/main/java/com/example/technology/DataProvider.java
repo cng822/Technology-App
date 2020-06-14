@@ -3,12 +3,12 @@ package com.example.technology;
 import android.content.Intent;
 
 import com.example.technology.R;
-import com.example.technology.Technology;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class DataProvider {
     static String[] products = {"Iphone XS Max" , "Iphone XR" , "Iphone 6s", "Oppo R11", "Huawei P8", "Apple Watch"};
