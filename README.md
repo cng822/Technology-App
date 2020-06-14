@@ -9,5 +9,13 @@ able to provide details of specific products as well as allowing us to search fo
 
 ## What Does It Do?
 
-This app will sell technology-related items from three categories; Computer/Laptops, Phones, and Watches. This app will have the ability to perform several features such as searching for specific items available through the search bar and the ability to display the top three items. Information on specific items can be displayed after selecting them on our app and the app will be able to generate a list of items in specific categories. The app will also have the functionality of sorting items from best selling or from most viewed.
+This app will sell technology-related items from three categories; Computer/Laptops, Phones, and Watches. This app will have the ability to perform several features such as searching for specific items available through the search bar and the ability to display the top three picks. The app will display a list of items in the specific categories when clicked on from the main screen. Information on specific items can be displayed after selecting them from this list. The app will also have the functionality of choosing the top picks currently present on the app. 
 
+## Screenshots
+
+
+## Tech Used
+
+This app has been created on Android Studio by using Java as the programming language. 
+
+## 
