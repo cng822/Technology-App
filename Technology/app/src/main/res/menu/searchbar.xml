@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
 
     <item
-        android:id="@+id/searchMenu"
+        android:id="@+id/searchMenuMain"
         android:icon="@android:drawable/ic_menu_search"
         android:title="@android:string/search_go"
 	           app:actionViewClass="androidx.appcompat.widget.SearchView"

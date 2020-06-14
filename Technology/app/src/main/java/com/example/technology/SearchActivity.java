@@ -6,22 +6,24 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    TechnologyAdapter sAdapter;
-    List<Technology> itemsList;
-    @Override
+    List<Technology> searchList;
+    TechnologyAdapter adapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        handleIntent(getIntent());
+        searchList = DataProvider.generateData();
+        Results();
+        Intent intent = getIntent();
+        handleIntent(intent);
+        System.out.println(intent.getStringExtra("search"));
     }
-    private void SearchResults(){
-        itemsList =  DataProvider.generateData();
-        sAdapter = new TechnologyAdapter(this, itemsList);
-    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -30,10 +32,20 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void handleIntent(Intent intent) {
+        String toSearch;
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            // Do work using string
         }
+        toSearch = intent.getStringExtra("search");
+        adapter.getFilter().filter(toSearch);
+    }
+
+    private void Results() {
+        RecyclerView recyclerView = findViewById(R.id.searchRecycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new TechnologyAdapter(this, searchList);
+        recyclerView.setAdapter(adapter);
     }
 
 
