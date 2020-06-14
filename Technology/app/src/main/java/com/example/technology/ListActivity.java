@@ -38,7 +38,7 @@ public class ListActivity extends AppCompatActivity {
         //display all items in the specific list using recyclerview
         RecyclerView recyclerView = findViewById(R.id.RecylcerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        
+
         //continue making more items in list view until we reach the last one in list
         if (selectedList.size() > 0){
             technologyAdapter = new TechnologyAdapter(this, selectedList);
