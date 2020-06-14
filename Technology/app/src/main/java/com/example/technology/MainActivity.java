@@ -5,6 +5,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,8 +33,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Explode explode = new Explode();
+        getWindow().setExitTransition(explode);
 
-        CardView PHCardView = (CardView) findViewById(R.id.phone_view);
+        final CardView PHCardView = (CardView) findViewById(R.id.phone_view);
+        final CardView LTCardView = (CardView) findViewById(R.id.laptops_view);
+        final CardView SWCardView = (CardView) findViewById(R.id.watches_view);
         PHCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,16 +47,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(phoneIntent);
             }
         });
-        CardView LTCardView = (CardView) findViewById(R.id.laptops_view);
+
+
         LTCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent laptopsIntent = new Intent(getBaseContext(), ListActivity.class);
                 laptopsIntent.putExtra("category", "Laptops");
+
+                //TransitionManager.beginDelayedTransition((LTCardView, PHCardView, SWCardView), fade);
+                //toggleVisibility(PHCardView, LTCardView, SWCardView);
                 startActivity(laptopsIntent);
             }
+            //function to make views invisible
+            public void toggleVisibility(View... views){
+                for (View current:views){
+                    if (current.getVisibility() == View.VISIBLE){
+                        current.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
         });
-        CardView SWCardView = (CardView) findViewById(R.id.watches_view);
+
+
         SWCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             String query = ask.getStringExtra(SearchManager.QUERY);
         }
     }
+
+
 
 
     private void setUpTopPicks() {
