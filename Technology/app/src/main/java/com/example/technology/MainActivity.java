@@ -11,6 +11,7 @@ import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -86,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
         setUpTopPicks();
 
-        Intent ask = getIntent();
-        if (Intent.ACTION_SEARCH.equals(getIntent().getAction())){
-            String query = ask.getStringExtra(SearchManager.QUERY);
-        }
+//        Intent ask = getIntent();
+//        if (Intent.ACTION_SEARCH.equals(getIntent().getAction())){
+//            String query = ask.getStringExtra(SearchManager.QUERY);
+//        }
     }
     //find the three top picks and display them in recyclerview
     private void setUpTopPicks() {
@@ -104,32 +105,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         // Inflate the menu; this adds items to the action bar if it is present.
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.searchbar, menu);
-
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.searchMenu).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(new ComponentName(this, ListActivity.class)));
+        getMenuInflater().inflate(R.menu.searchbar, menu);
+        final MenuItem searchItem = menu.findItem(R.id.searchMenuMain);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
             @Override
             public boolean onQueryTextSubmit(String query) {
-                return false;
+                Intent intent = new Intent(getBaseContext(), SearchActivity.class);
+                intent.putExtra("search", query);
+                startActivity(intent);
+                return true;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-//                sAdapter.getFilter().filter(newText);
-                Log.e("queryText",newText);
+            public boolean onQueryTextChange(String s) {
                 return false;
             }
         });
         return true;
+
     }
 
 
