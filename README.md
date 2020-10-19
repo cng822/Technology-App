@@ -1,4 +1,4 @@
-# CS302-Java-2020-Group18 - Technology Retail App
+# Technology Retail App
 
 The purpose of this app is to display three different technology-related categories using Android Studio.
 
